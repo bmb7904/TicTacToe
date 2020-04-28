@@ -6,9 +6,9 @@
 #include "Game.h"
 
 
-Game::Game(int numMoves)
+Game::Game()
 {
-    Game::numberOfMoves = numMoves;
+    
 }
 
 Game::who Game::play()
@@ -71,7 +71,7 @@ Game::who Game::play()
 // vague message.
 void Game::displayOpeningMessage()const
 {
-    std::cout << "Welcome to the game! Author: Brett Bernardi" << std::endl;
+    std::cout << "Welcome to the game!"  << std::endl; 
 }
 
 Game::~Game()

@@ -12,8 +12,12 @@
 
 class Game {
     public:
-        enum who{HUMAN, TIE, COMPUTER}; // enum list represents whose turn it is
-        Game(int numMoves = 0);
+
+        enum who {HUMAN, TIE, COMPUTER}; // enum list represents whose turn it is
+        /*
+         * constructor. No arguments.
+         */
+        Game();
         /**
          * The main function that controls the game. 
          * Post-condition: Will return an enum(human, computer, neutral) when the
@@ -21,20 +25,37 @@ class Game {
          * the game is a tie. 
          */
         who play();
+        /*
+         * Postconditon: a message describes the game has been displayed.
+         */
         void virtual displayOpeningMessage()const = 0;
+        /*
+         *Postcondtition: The computer has made its move
+         */
         virtual void computerMove() = 0;
+        /*
+         * Postcondtion: The human has made his/her move
+         */
         virtual void humanMove() = 0;
-        virtual bool isGameOver() = 0;
+        /*
+         * Postcondtion: true value has been returned if game is over
+         *               false is returned otherwise
+         */
+        virtual bool isGameOver()const = 0;
+        /*
+         * Postconditon: a message describes the end of the game has been displayed.
+         */
         virtual void displayOutgoingMessage()const = 0;
         /**
-         * Post-condition: returns true if game is completely 
+         * Post-condition: returns true if game results in a tie
          */
-        virtual bool isTie() = 0;
-        int getNumberOfMovesMade()const;
+        virtual bool isTie()const = 0;
+        /*
+         * Destructor
+         */
         ~Game();
-        
+
     private:
-        int numberOfMoves;
 
 };
 

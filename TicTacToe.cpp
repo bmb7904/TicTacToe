@@ -1,19 +1,13 @@
 /*
- * TicTacToe.cpp
+ * TicTacToe.cpp - Implementation of TicTacToe class
  * A derived class of the Game class, this class will allow a TicTacToe game to 
  * be played.
- * 
  */
 
 #include "TicTacToe.h"
 
-
-
 TicTacToe::TicTacToe()
 {
-    rows = 3;
-    columns = 3;
-    
     grid = new char*[rows];
     for(int i = 0; i < rows; i++)
     {
@@ -35,21 +29,23 @@ TicTacToe::TicTacToe()
 void TicTacToe::printGameGrid()const
 {
     char output;
+    std::cout << "  0  1  2\n";
     for(int i = 0; i < rows; i ++)
     {
+        std::cout << i << " ";
         for(int j = 0; j < columns; j++)
         {            
             if(grid[i][j] == 'E')
             {
-                output = ' ';
+                output = '-';
             }
             else
             {
                 output = grid[i][j];
             }
-            std::cout<< "|" << output << "| ";
+            std::cout << output << "  ";
         }
-        std::cout<< "\n-----------\n";
+        std::cout << "\n";
     }
 }
 
@@ -111,8 +107,11 @@ void TicTacToe::humanMove()
     printGameGrid();
     std::cout << std::endl;
 }
-
-bool TicTacToe::isGameOver()
+/**
+ * I really tried to make this more efficient and elegant, but I just couldn't 
+ * come up with anything. So I left it like this. This DOES work. It's just ugly.
+ */
+bool TicTacToe::isGameOver()const
 {
     if((grid[0][0] == grid[0][1]) && (grid[0][1] == grid[0][2]) && (grid[0][0] != 'E'))
     {
@@ -153,7 +152,7 @@ bool TicTacToe::isGameOver()
     }
 }
 
-bool TicTacToe::isTie()
+bool TicTacToe::isTie()const
 {
     if(isGridFull() && !isGameOver())
     {

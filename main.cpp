@@ -1,7 +1,4 @@
-/*
- *                  Homework 8
- * 
- */
+
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
@@ -15,8 +12,7 @@ int main(int argc, char** argv) {
     Game::who whoWon= game->play();
     if(whoWon== Game::COMPUTER)
     {
-        cout << "The computer has won the game!\n"
-             << "Try again next time!\n";  ;
+        cout << "The computer has won the game!\n";
     }
     else if(whoWon==Game::HUMAN)
     {
@@ -27,7 +23,7 @@ int main(int argc, char** argv) {
         cout << "The game ended in a tie!";
     }
     
-    cout << endl << endl << "Programmer: Brett Bernardi" << endl;
+    cout << endl << "Programmer: Brett Bernardi\n";
 
 
     return 0;
